@@ -1,0 +1,12 @@
+C:\Users\jacks\github\LIFFileViewer\LIFFileViewer\LIFFileViewer\obj\Debug\netcoreapp2.1\LIFFileViewer.csprojAssemblyReference.cache
+C:\Users\jacks\github\LIFFileViewer\LIFFileViewer\LIFFileViewer\bin\Debug\netcoreapp2.1\Images\RaceRegLogo_TimingAndRegistration.png
+C:\Users\jacks\github\LIFFileViewer\LIFFileViewer\LIFFileViewer\bin\Debug\netcoreapp2.1\LIFFileViewer.deps.json
+C:\Users\jacks\github\LIFFileViewer\LIFFileViewer\LIFFileViewer\bin\Debug\netcoreapp2.1\LIFFileViewer.runtimeconfig.json
+C:\Users\jacks\github\LIFFileViewer\LIFFileViewer\LIFFileViewer\bin\Debug\netcoreapp2.1\LIFFileViewer.runtimeconfig.dev.json
+C:\Users\jacks\github\LIFFileViewer\LIFFileViewer\LIFFileViewer\bin\Debug\netcoreapp2.1\LIFFileViewer.dll
+C:\Users\jacks\github\LIFFileViewer\LIFFileViewer\LIFFileViewer\bin\Debug\netcoreapp2.1\LIFFileViewer.pdb
+C:\Users\jacks\github\LIFFileViewer\LIFFileViewer\LIFFileViewer\obj\Debug\netcoreapp2.1\LIFFileViewer.csproj.CoreCompileInputs.cache
+C:\Users\jacks\github\LIFFileViewer\LIFFileViewer\LIFFileViewer\obj\Debug\netcoreapp2.1\LIFFileViewer.AssemblyInfoInputs.cache
+C:\Users\jacks\github\LIFFileViewer\LIFFileViewer\LIFFileViewer\obj\Debug\netcoreapp2.1\LIFFileViewer.AssemblyInfo.cs
+C:\Users\jacks\github\LIFFileViewer\LIFFileViewer\LIFFileViewer\obj\Debug\netcoreapp2.1\LIFFileViewer.dll
+C:\Users\jacks\github\LIFFileViewer\LIFFileViewer\LIFFileViewer\obj\Debug\netcoreapp2.1\LIFFileViewer.pdb

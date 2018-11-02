@@ -82,6 +82,7 @@ namespace LIFFileViewer.ViewModels
             FilesInCurrentDirectory = new ObservableCollection<string>();
             //CurrentDirectory
             //SelectedFile
+            LoadLIFDirectory.RaiseCanExecuteChanged();
         }
 
         private SimpleCommand findAndLoadLIFFile;
@@ -90,6 +91,8 @@ namespace LIFFileViewer.ViewModels
             async () =>
             {
                 LIFFilePath = await data.FindFileAsync();
+                CurrentDirectory = Path.GetDirectoryName(LIFFilePath);
+
                 LoadLIFFile.RaiseCanExecuteChanged();
                 LoadLIFDirectory.RaiseCanExecuteChanged();
                 LoadDirectoryContents();
@@ -110,6 +113,7 @@ namespace LIFFileViewer.ViewModels
             async () =>
             {
                 LIFFilePath = await data.FindFileAsync();
+                CurrentDirectory = Path.GetDirectoryName(LIFFilePath);
                 LoadDirectoryContents();
                 LoadLIFFile.RaiseCanExecuteChanged();
                 LoadLIFDirectory.RaiseCanExecuteChanged();
@@ -118,17 +122,16 @@ namespace LIFFileViewer.ViewModels
 
         private void LoadDirectoryContents()
         {
-            CurrentDirectory = Path.GetDirectoryName(LIFFilePath);
             var ext = new List<string> { ".lif", ".LIF" };
             var files = Directory.GetFiles(CurrentDirectory, "*.*", SearchOption.AllDirectories)
                 .Where(s => ext.Contains(Path.GetExtension(s))); //uses LINQ to get the results we want
 
             FilesInCurrentDirectory.Clear();
-            foreach(string file in files)
+            foreach (string file in files)
             {
                 FilesInCurrentDirectory.Add(Path.GetFileName(file));
 
-                if(string.Equals(file, LIFFilePath))
+                if (string.Equals(file, LIFFilePath))
                 {
                     SelectedFile = FilesInCurrentDirectory.ElementAt<string>(FilesInCurrentDirectory.Count - 1);
                 }
@@ -138,7 +141,7 @@ namespace LIFFileViewer.ViewModels
 
         private SimpleCommand loadLIFDirectory;
         public SimpleCommand LoadLIFDirectory => loadLIFDirectory ?? (loadLIFDirectory = new SimpleCommand(
-            () => !IsBusy && data.FileExists(LIFFilePath), //sees if we can read in a LIF file
+            () => !IsBusy , //sees if we can read in a LIF file
             async () =>
             {
                 CurrentDirectory = await data.FindDirectoryAsync();

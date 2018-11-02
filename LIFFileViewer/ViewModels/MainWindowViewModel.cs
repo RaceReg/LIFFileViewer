@@ -80,8 +80,8 @@ namespace LIFFileViewer.ViewModels
         {
             this.data = data;
             FilesInCurrentDirectory = new ObservableCollection<string>();
-            //CurrentDirectory
-            //SelectedFile
+            CurrentDirectory = "";
+            SelectedFile = "";
             LoadLIFDirectory.RaiseCanExecuteChanged();
         }
 
@@ -153,7 +153,7 @@ namespace LIFFileViewer.ViewModels
 
         private SimpleCommand loadLIFFile;
         public SimpleCommand LoadLIFFile => loadLIFFile ?? (loadLIFFile = new SimpleCommand(
-            () => !IsBusy && data.FileExists(LIFFilePath), //sees if we can read in a LIF file
+            () => !IsBusy, //sees if we can read in a LIF file
             async () =>
             {
                 IsBusy = true;

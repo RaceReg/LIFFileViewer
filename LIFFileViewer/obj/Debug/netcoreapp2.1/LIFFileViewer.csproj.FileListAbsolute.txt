@@ -10,3 +10,15 @@ C:\Users\jacks\github\LIFFileViewer\LIFFileViewer\LIFFileViewer\obj\Debug\netcor
 C:\Users\jacks\github\LIFFileViewer\LIFFileViewer\LIFFileViewer\obj\Debug\netcoreapp2.1\LIFFileViewer.AssemblyInfo.cs
 C:\Users\jacks\github\LIFFileViewer\LIFFileViewer\LIFFileViewer\obj\Debug\netcoreapp2.1\LIFFileViewer.dll
 C:\Users\jacks\github\LIFFileViewer\LIFFileViewer\LIFFileViewer\obj\Debug\netcoreapp2.1\LIFFileViewer.pdb
+C:\Users\jackson.porter\github\LIFFileViewer\LIFFileViewer\bin\Debug\netcoreapp2.1\Images\RaceRegLogo_TimingAndRegistration.png
+C:\Users\jackson.porter\github\LIFFileViewer\LIFFileViewer\bin\Debug\netcoreapp2.1\LIFFileViewer.deps.json
+C:\Users\jackson.porter\github\LIFFileViewer\LIFFileViewer\bin\Debug\netcoreapp2.1\LIFFileViewer.runtimeconfig.json
+C:\Users\jackson.porter\github\LIFFileViewer\LIFFileViewer\bin\Debug\netcoreapp2.1\LIFFileViewer.runtimeconfig.dev.json
+C:\Users\jackson.porter\github\LIFFileViewer\LIFFileViewer\bin\Debug\netcoreapp2.1\LIFFileViewer.dll
+C:\Users\jackson.porter\github\LIFFileViewer\LIFFileViewer\bin\Debug\netcoreapp2.1\LIFFileViewer.pdb
+C:\Users\jackson.porter\github\LIFFileViewer\LIFFileViewer\obj\Debug\netcoreapp2.1\LIFFileViewer.csprojAssemblyReference.cache
+C:\Users\jackson.porter\github\LIFFileViewer\LIFFileViewer\obj\Debug\netcoreapp2.1\LIFFileViewer.csproj.CoreCompileInputs.cache
+C:\Users\jackson.porter\github\LIFFileViewer\LIFFileViewer\obj\Debug\netcoreapp2.1\LIFFileViewer.AssemblyInfoInputs.cache
+C:\Users\jackson.porter\github\LIFFileViewer\LIFFileViewer\obj\Debug\netcoreapp2.1\LIFFileViewer.AssemblyInfo.cs
+C:\Users\jackson.porter\github\LIFFileViewer\LIFFileViewer\obj\Debug\netcoreapp2.1\LIFFileViewer.dll
+C:\Users\jackson.porter\github\LIFFileViewer\LIFFileViewer\obj\Debug\netcoreapp2.1\LIFFileViewer.pdb

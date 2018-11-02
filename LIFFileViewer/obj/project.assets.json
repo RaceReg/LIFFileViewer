@@ -4556,23 +4556,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\jacks\\.nuget\\packages\\": {},
+    "C:\\Users\\jackson.porter\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jacks\\github\\LIFFileViewer\\LIFFileViewer\\LIFFileViewer\\LIFFileViewer.csproj",
+      "projectUniqueName": "C:\\Users\\jackson.porter\\github\\LIFFileViewer\\LIFFileViewer\\LIFFileViewer.csproj",
       "projectName": "LIFFileViewer",
-      "projectPath": "C:\\Users\\jacks\\github\\LIFFileViewer\\LIFFileViewer\\LIFFileViewer\\LIFFileViewer.csproj",
-      "packagesPath": "C:\\Users\\jacks\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jacks\\github\\LIFFileViewer\\LIFFileViewer\\LIFFileViewer\\obj\\",
+      "projectPath": "C:\\Users\\jackson.porter\\github\\LIFFileViewer\\LIFFileViewer\\LIFFileViewer.csproj",
+      "packagesPath": "C:\\Users\\jackson.porter\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\jackson.porter\\github\\LIFFileViewer\\LIFFileViewer\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\jacks\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\jackson.porter\\github\\LIFFileViewer\\NuGet.Config",
+        "C:\\Users\\jackson.porter\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -4580,7 +4581,8 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "https://api.nuget.org/v3/index.json": {},
+        "https://www.myget.org/F/avalonia-ci/api/v2": {}
       },
       "frameworks": {
         "netcoreapp2.1": {

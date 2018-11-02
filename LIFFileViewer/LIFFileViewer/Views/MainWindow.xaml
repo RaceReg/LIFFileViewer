@@ -62,9 +62,9 @@
                      HorizontalAlignment="Center"
                      Margin="5"/>
 
-          <ListBox>
-            <ListBoxItem Content="File 1" />
-          </ListBox>
+          <ListBox Items="{Binding FilesInCurrentDirectory}"
+                   SelectedItem="{Binding SelectedFile}"/>
+
         </StackPanel>
 
         <StackPanel Margin="10">

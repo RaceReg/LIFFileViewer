@@ -6,12 +6,28 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.IO;
+using System.Linq;
 using System.Text;
 
 namespace LIFFileViewer.ViewModels
 {
     public class MainWindowViewModel : INotifyPropertyChanged
     {
+        private string selectedFile;
+        public string SelectedFile
+        {
+            get
+            {
+                return selectedFile;
+            }
+            set
+            {
+                selectedFile = value;
+                OnPropertyChanged(nameof(SelectedFile));
+            }
+        }
+
         private string currentDirectory;
         public string CurrentDirectory
         {
@@ -23,6 +39,20 @@ namespace LIFFileViewer.ViewModels
             {
                 currentDirectory = value;
                 OnPropertyChanged(nameof(CurrentDirectory));
+            }
+        }
+
+        private ObservableCollection<string> filesInCurrentDirectory;
+        public ObservableCollection<string> FilesInCurrentDirectory
+        {
+            get
+            {
+                return filesInCurrentDirectory;
+            }
+            set
+            {
+                filesInCurrentDirectory = value;
+                OnPropertyChanged(nameof(FilesInCurrentDirectory));
             }
         }
 
@@ -49,6 +79,9 @@ namespace LIFFileViewer.ViewModels
         public MainWindowViewModel(IDataService data)
         {
             this.data = data;
+            FilesInCurrentDirectory = new ObservableCollection<string>();
+            //CurrentDirectory
+            //SelectedFile
         }
 
         private SimpleCommand findAndLoadLIFFile;
@@ -58,8 +91,9 @@ namespace LIFFileViewer.ViewModels
             {
                 LIFFilePath = await data.FindFileAsync();
                 LoadLIFFile.RaiseCanExecuteChanged();
+                LoadDirectoryContents();
 
-                if(!IsBusy && data.FileExists(LIFFilePath))
+                if (!IsBusy && data.FileExists(LIFFilePath))
                 {
                     IsBusy = true;
                     lif = await data.GetEntriesFromLIFAsync(LIFFilePath);
@@ -75,9 +109,30 @@ namespace LIFFileViewer.ViewModels
             async () =>
             {
                 LIFFilePath = await data.FindFileAsync();
+                LoadDirectoryContents();
                 LoadLIFFile.RaiseCanExecuteChanged();
             }
             ));
+
+        private void LoadDirectoryContents()
+        {
+            CurrentDirectory = Path.GetDirectoryName(LIFFilePath);
+            var ext = new List<string> { ".lif", ".LIF" };
+            var files = Directory.GetFiles(CurrentDirectory, "*.*", SearchOption.AllDirectories)
+                .Where(s => ext.Contains(Path.GetExtension(s))); //uses LINQ to get the results we want
+
+            FilesInCurrentDirectory.Clear();
+            foreach(string file in files)
+            {
+                FilesInCurrentDirectory.Add(Path.GetFileName(file));
+
+                if(string.Equals(file, LIFFilePath))
+                {
+                    SelectedFile = FilesInCurrentDirectory.ElementAt<string>(FilesInCurrentDirectory.Count - 1);
+                }
+            }
+
+        }
 
         private SimpleCommand loadLIFFile;
         public SimpleCommand LoadLIFFile => loadLIFFile ?? (loadLIFFile = new SimpleCommand(

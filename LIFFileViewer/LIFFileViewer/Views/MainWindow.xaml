@@ -61,7 +61,7 @@
                      Margin="5"/>
 
           <ListBox>
-            <ListBoxItem Content="Item 1" />
+            <ListBoxItem Content="File 1" />
           </ListBox>
         </StackPanel>
 
@@ -115,11 +115,14 @@
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
-                      <TextBlock Text="{Binding Place}" Margin="0 0 0 10"/>
-                      <TextBlock Text="{Binding FirstName}" />
-                      <TextBlock Text="{Binding LastName}" />
-                      <TextBlock Text="{Binding Lane}" />
+                      <TextBlock Text="(" />
+                      <TextBlock Text="{Binding Place}" />
+                      <TextBlock Text=")" Margin="0 0 10 0"/>
+                      <TextBlock Text="{Binding FirstName}" Margin="0 0 3 0"/>
+                      <TextBlock Text="{Binding LastName}" Margin="0 0 3 0"/>
+                      <TextBlock Text="[" />
                       <TextBlock Text="{Binding Time}" />
+                      <TextBlock Text="]" />
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>

@@ -115,8 +115,11 @@
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="{Binding FirstName}" />
-                        <TextBlock Text="{Binding LastName}" />
+                      <TextBlock Text="{Binding Place}" Margin="0 0 0 10"/>
+                      <TextBlock Text="{Binding FirstName}" />
+                      <TextBlock Text="{Binding LastName}" />
+                      <TextBlock Text="{Binding Lane}" />
+                      <TextBlock Text="{Binding Time}" />
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>

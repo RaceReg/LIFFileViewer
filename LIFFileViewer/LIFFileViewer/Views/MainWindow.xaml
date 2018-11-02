@@ -3,7 +3,9 @@
         xmlns:vm="clr-namespace:LIFFileViewer.ViewModels;assembly=LIFFileViewer"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         Icon="resm:LIFFileViewer.Assets.avalonia-logo.ico"
-        Title="LIFFileViewer">
+        Title="LIFFileViewer"
+        Height="600"
+        Width="800">
 
   <Design.DataContext>
     <vm:MainWindowViewModel/>
@@ -111,7 +113,8 @@
           </Grid>
           <Separator Height="10" />
 
-          <ListBox Items="{Binding Entries}">
+          <ListBox Items="{Binding Entries}"
+                   SelectedItem="{Binding SelectedEntry}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
@@ -126,11 +129,6 @@
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
-            <!--
-            <ListBox.Items>
-                <sys:String>Hey</sys:String>
-            </ListBox.Items>
-            -->
         </ListBox>
         </StackPanel>
       </DockPanel>

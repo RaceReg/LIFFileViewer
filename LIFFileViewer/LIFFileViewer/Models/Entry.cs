@@ -14,7 +14,8 @@ namespace LIFFileViewer.Model
         private string lastName;
         private string firstName;
         private string affiliation;
-        private DateTime time;
+        //private DateTime time; //WILL CONVERT TO A TIME FORMAT EVENTUALLY
+        private string time;
 
         public int Place
         {
@@ -82,7 +83,18 @@ namespace LIFFileViewer.Model
                 affiliation = value;
             }
         }
-        public DateTime Time
+        //public DateTime Time
+        //{
+        //    get
+        //    {
+        //        return time;
+        //    }
+        //    set
+        //    {
+        //        time = value;
+        //    }
+        //}
+        public string Time
         {
             get
             {

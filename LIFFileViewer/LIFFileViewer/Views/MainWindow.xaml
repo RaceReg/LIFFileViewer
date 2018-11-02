@@ -14,8 +14,8 @@
   <DockPanel>
     <Menu DockPanel.Dock="Top">
       <MenuItem Header="File">
-        <MenuItem Header="_Open LIF"/>
-        <MenuItem Header="Exit"/>
+        <MenuItem Header="_Open LIF" Command="{Binding FindAndLoadLIFFile}"/>
+        <!--<MenuItem Header="Exit"/>-->
       </MenuItem>
     </Menu>
 
@@ -91,30 +91,54 @@
                Grid.Row="0"
                Text="Race Name:" />
 
+            <TextBlock Grid.Column="1"
+               Grid.Row="0"
+               Text="{Binding lif.EventName}" />
+
             <TextBlock Grid.Column="0"
                Grid.Row="1"
                Text="Start Time:" />
+
+            <TextBlock Grid.Column="1"
+               Grid.Row="1"
+               Text="{Binding lif.StartTime}" />
 
             <TextBlock Grid.Column="2"
                Grid.Row="0"
                Text="Race ID:" />
 
+            <TextBlock Grid.Column="3"
+               Grid.Row="0"
+               Text="{Binding lif.EventId}" />
+
             <TextBlock Grid.Column="2"
                Grid.Row="1"
                Text="Round #:" />
+
+            <TextBlock Grid.Column="3"
+               Grid.Row="1"
+               Text="{Binding lif.RoundId}" />
 
             <TextBlock Grid.Column="2"
                Grid.Row="3"
                Text="Heat #:" />
 
+            <TextBlock Grid.Column="3"
+               Grid.Row="3"
+               Text="{Binding lif.HeatId}" />
+
             <TextBlock Grid.Column="0"
                Grid.Row="4"
                Text="Distance (meters):" />
+
+            <TextBlock Grid.Column="1"
+               Grid.Row="4"
+               Text="{Binding lif.EventDistance}" />
           </Grid>
           <Separator Height="10" />
 
-          <ListBox Items="{Binding Entries}"
-                   SelectedItem="{Binding SelectedEntry}">
+          <ListBox Items="{Binding lif.Entries}"
+                   SelectedItem="{Binding lif.SelectedEntry}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">

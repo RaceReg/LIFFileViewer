@@ -55,8 +55,14 @@
       <DockPanel>
         <StackPanel Width="150" DockPanel.Dock="Left">
           <Button Content="Select Directory"
-                  Width="100"
-                  Margin="5"/>
+                  Width="110"
+                  Margin="5"
+                  Command="{Binding LoadLIFDirectory}"/>
+          
+          <Button Content="Load Selected File"
+                  Width="110"
+                  Margin="5"
+                  Command="{Binding LoadLIFFile}"/>
 
           <TextBlock Text="LIF Files:"
                      HorizontalAlignment="Center"

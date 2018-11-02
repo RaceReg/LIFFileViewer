@@ -91,6 +91,7 @@ namespace LIFFileViewer.ViewModels
             {
                 LIFFilePath = await data.FindFileAsync();
                 LoadLIFFile.RaiseCanExecuteChanged();
+                LoadLIFDirectory.RaiseCanExecuteChanged();
                 LoadDirectoryContents();
 
                 if (!IsBusy && data.FileExists(LIFFilePath))
@@ -111,6 +112,7 @@ namespace LIFFileViewer.ViewModels
                 LIFFilePath = await data.FindFileAsync();
                 LoadDirectoryContents();
                 LoadLIFFile.RaiseCanExecuteChanged();
+                LoadLIFDirectory.RaiseCanExecuteChanged();
             }
             ));
 
@@ -134,12 +136,25 @@ namespace LIFFileViewer.ViewModels
 
         }
 
+        private SimpleCommand loadLIFDirectory;
+        public SimpleCommand LoadLIFDirectory => loadLIFDirectory ?? (loadLIFDirectory = new SimpleCommand(
+            () => !IsBusy && data.FileExists(LIFFilePath), //sees if we can read in a LIF file
+            async () =>
+            {
+                CurrentDirectory = await data.FindDirectoryAsync();
+                LoadDirectoryContents();
+                LoadLIFFile.RaiseCanExecuteChanged();
+                LoadLIFDirectory.RaiseCanExecuteChanged();
+            }
+            ));
+
         private SimpleCommand loadLIFFile;
         public SimpleCommand LoadLIFFile => loadLIFFile ?? (loadLIFFile = new SimpleCommand(
             () => !IsBusy && data.FileExists(LIFFilePath), //sees if we can read in a LIF file
             async () =>
             {
                 IsBusy = true;
+                LIFFilePath = Path.Combine(CurrentDirectory, SelectedFile);
                 lif = await data.GetEntriesFromLIFAsync(LIFFilePath);
 
                 IsBusy = false;
@@ -159,6 +174,7 @@ namespace LIFFileViewer.ViewModels
                 OnPropertyChanged(nameof(IsBusy));
                 LoadLIFFile.RaiseCanExecuteChanged();
                 FindLIFFile.RaiseCanExecuteChanged();
+                LoadLIFDirectory.RaiseCanExecuteChanged();
             }
         }
 

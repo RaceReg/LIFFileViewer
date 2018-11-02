@@ -17,9 +17,21 @@ namespace LIFFileViewer.Data
             return File.Exists(lifFILE);
         }
 
-        public Task<string> FindDirectoryAsync()
+        public async Task<string> FindDirectoryAsync()
         {
-            throw new NotImplementedException(); /////////////////////////////////
+            var openFolderDialog = new OpenFolderDialog()
+            {
+                Title = "Select Directory  LIF results file:",
+                //Filters = { "*.lif" };
+            };
+
+            var path = await openFolderDialog.ShowAsync();
+
+            if (!string.Equals(path, "") && path != null)
+            {
+                return path;
+            }
+            return null;
         }
 
         public async Task<string> FindFileAsync()

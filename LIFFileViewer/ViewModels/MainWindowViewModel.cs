@@ -14,6 +14,8 @@ namespace LIFFileViewer.ViewModels
 {
     public class MainWindowViewModel : INotifyPropertyChanged
     {
+        private bool shouldReturnDirectoryFiles;
+
         private string selectedFile;
         public string SelectedFile
         {
@@ -74,11 +76,12 @@ namespace LIFFileViewer.ViewModels
         }
 
         //Default Constructor
-        public MainWindowViewModel() : this(new DefaultDataService()) { }
+        public MainWindowViewModel() : this(new DefaultDataService(), true) { }
 
-        public MainWindowViewModel(IDataService data)
+        public MainWindowViewModel(IDataService data, bool shouldReturnDirectoryFiles)
         {
             this.data = data;
+            this.shouldReturnDirectoryFiles = shouldReturnDirectoryFiles;
             FilesInCurrentDirectory = new ObservableCollection<string>();
             CurrentDirectory = "";
             SelectedFile = "";
@@ -95,8 +98,11 @@ namespace LIFFileViewer.ViewModels
 
                 LoadLIFFile.RaiseCanExecuteChanged();
                 LoadLIFDirectory.RaiseCanExecuteChanged();
-                LoadDirectoryContents();
-
+                if(shouldReturnDirectoryFiles)
+                {
+                    LoadDirectoryContents();
+                }
+                
                 if (!IsBusy && data.FileExists(LIFFilePath))
                 {
                     IsBusy = true;
@@ -114,7 +120,10 @@ namespace LIFFileViewer.ViewModels
             {
                 LIFFilePath = await data.FindFileAsync();
                 CurrentDirectory = Path.GetDirectoryName(LIFFilePath);
-                LoadDirectoryContents();
+                if (shouldReturnDirectoryFiles)
+                {
+                    LoadDirectoryContents();
+                }
                 LoadLIFFile.RaiseCanExecuteChanged();
                 LoadLIFDirectory.RaiseCanExecuteChanged();
             }
@@ -145,7 +154,10 @@ namespace LIFFileViewer.ViewModels
             async () =>
             {
                 CurrentDirectory = await data.FindDirectoryAsync();
-                LoadDirectoryContents();
+                if (shouldReturnDirectoryFiles)
+                {
+                    LoadDirectoryContents();
+                }
                 LoadLIFFile.RaiseCanExecuteChanged();
                 LoadLIFDirectory.RaiseCanExecuteChanged();
             }

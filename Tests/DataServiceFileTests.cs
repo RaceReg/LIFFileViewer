@@ -14,13 +14,13 @@ namespace Tests
         public void FindDirectoryTest()
         {
             var dataService = new TestDataServce();
-            var testVM = new MainWindowViewModel(dataService);
+            var testVM = new MainWindowViewModel(dataService, false);
 
             testVM.LoadLIFDirectory.Execute(this);
 
             //HOW TO WAIT FOR TASK TO FINISH?
 
-            Assert.AreEqual("D:\\", testVM.CurrentDirectory);
+            Assert.AreEqual("C:\\Users\\", testVM.CurrentDirectory);
         }
     }
 
@@ -37,7 +37,7 @@ namespace Tests
 
         public Task<string> FindDirectoryAsync()
         {
-            return Task.Factory.StartNew(() => { return "C:\\Users"; });
+            return Task.Factory.StartNew(() => { return "C:\\Users\\"; });
         }
 
         public Task<string> FindFileAsync()

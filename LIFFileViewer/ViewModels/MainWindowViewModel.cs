@@ -132,25 +132,33 @@ namespace LIFFileViewer.ViewModels
         private void LoadDirectoryContents()
         {
             var ext = new List<string> { ".lif", ".LIF" };
-            var files = Directory.GetFiles(CurrentDirectory, "*.*", SearchOption.AllDirectories)
+            try
+            {
+                var files = Directory.GetFiles(CurrentDirectory, "*.*", SearchOption.AllDirectories)
                 .Where(s => ext.Contains(Path.GetExtension(s))); //uses LINQ to get the results we want
 
-            FilesInCurrentDirectory.Clear();
-            foreach (string file in files)
-            {
-                FilesInCurrentDirectory.Add(Path.GetFileName(file));
-
-                if (string.Equals(file, LIFFilePath))
+                FilesInCurrentDirectory.Clear();
+                foreach (string file in files)
                 {
-                    SelectedFile = FilesInCurrentDirectory.ElementAt<string>(FilesInCurrentDirectory.Count - 1);
+                    FilesInCurrentDirectory.Add(Path.GetFileName(file));
+
+                    if (string.Equals(file, LIFFilePath))
+                    {
+                        SelectedFile = FilesInCurrentDirectory.ElementAt<string>(FilesInCurrentDirectory.Count - 1);
+                    }
                 }
             }
+            catch(System.ArgumentNullException e)
+            {
+                //We are okay if the directory is null, we simply will do nothing. In the future, we could change the view to say "No directory."
+            }
+            
 
         }
 
         private SimpleCommand loadLIFDirectory;
         public SimpleCommand LoadLIFDirectory => loadLIFDirectory ?? (loadLIFDirectory = new SimpleCommand(
-            () => !IsBusy , //sees if we can read in a LIF file
+            () => !IsBusy ,
             async () =>
             {
                 CurrentDirectory = await data.FindDirectoryAsync();
